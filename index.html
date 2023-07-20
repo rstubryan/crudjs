@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CRUD</title>
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="/src/data.js"></script>
+   </head>
+   <body class="bg-slate-400">
+      <nav class="sticky top-0 drop-shadow-xl">
+         <h1
+            class="text-center font-bold bg-slate-800 text-white text-3xl py-4"
+         >
+            Tabel CRUD
+         </h1>
+      </nav>
+
+      <div id="crud" class="text-white text-xl font-semibold py-2 px-4">
+         <h2 class="text-center py-1">Data Mahasiswa</h2>
+
+         <div class="mx-auto block text-center py-4">
+            <!-- Create -->
+            <button
+               type="button"
+               onclick="createData()"
+               class="bg-slate-800 border border-slate-700 text-center mx-auto block"
+            >
+               <i class="fa fa-fw fa-plus"></i>
+               Create Data
+            </button>
+
+            <!-- Show -->
+            <button
+               type="button"
+               onclick="loadData()"
+               class="bg-slate-800 border border-slate-700 text-center mx-auto block"
+            >
+               <i class="fa fa-fw fa-database"></i>
+               Show Data
+            </button>
+         </div>
+
+         <table
+            class="mx-auto table-auto border-collapse border border-slate-700 text-center"
+            id="table_data"
+         >
+            <thead>
+               <tr>
+                  <th class="border border-slate-700 bg-slate-800 lg:px-5">
+                     ID
+                  </th>
+                  <th class="border border-slate-700 bg-slate-800 lg:px-10">
+                     Nama
+                  </th>
+                  <th class="border border-slate-700 bg-slate-800 lg:px-10">
+                     NIM
+                  </th>
+                  <th class="border border-slate-700 bg-slate-800 lg:px-10">
+                     Jurusan
+                  </th>
+                  <th class="border border-slate-700 bg-slate-800 lg:px-10">
+                     Aksi
+                  </th>
+               </tr>
+            </thead>
+         </table>
+      </div>
+
+      <script></script>
+   </body>
+</html>
