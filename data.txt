@@ -1,0 +1,35 @@
+    <div id="crud" class="text-white text-xl font-semibold py-2 px-4">
+        <h2 class="text-center">Tabel</h2>
+        <table class="mx-auto table-auto border-spacing-2 text-center" id="table_data">
+            <thead>
+                <tr>
+                    <th class="border border-slate-700 bg-slate-800">ID</th>
+                    <th class="border border-slate-700 bg-slate-800">Nama</th>
+                    <th class="border border-slate-700 bg-slate-800">NIM</th>
+                    <th class="border border-slate-700 bg-slate-800">Jurusan</th>
+                </tr>
+            </thead>
+        </table>
+        
+        <div class="py-6">
+            <button type="button" onclick="loadDoc()" class="bg-slate-900 border border-slate-700 text-center mx-auto block">
+                Reveal Data
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function loadDoc() {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function() {
+            const response = JSON.parse(this.responseText);
+            console.log(response)
+
+            response.forEach(item => {
+                document.getElementById('table_data').innerHTML += `<tr class="border border-slate-700 bg-slate-500"><td>${item.id}</td> <td>${item.nama}</td> <td>${item.nim}</td> <td>${item.jurusan}</td>`;
+            });
+          }
+          xhttp.open("GET", "https://lucis.serveo.net/belajar-php/mahasiswa/mahasiswa.php");
+          xhttp.send();
+        }
+    </script>
