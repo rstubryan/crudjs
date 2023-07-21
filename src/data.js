@@ -33,7 +33,7 @@ function loadData() {
             <td class="border border-slate-700">${item.nim}</td> 
             <td class="border border-slate-700">${item.jurusan}</td>
             <td>
-            <a href="../formedit.html?id=${item.id}" onClick="prepareUpdateData(${item.id})">Update</a> 
+            <a href="formedit.html?id=${item.id}" onClick="prepareUpdateData(${item.id})">Update</a> 
             | 
             <a href="#" onClick="deleteData(${item.id})">Delete</a></td></tr>`;
          });
