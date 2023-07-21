@@ -2,7 +2,7 @@ function createData() {
    const formData = new FormData(document.getElementById("formInput"));
 
    // Kirim data menggunakan AJAX
-   fetch("https://iussi.serveo.net/belajar-php/mahasiswa/mahasiswa.php", {
+   fetch("https://mhs.serveo.net/belajar-php/mahasiswa/mahasiswa.php", {
       method: "POST",
       body: formData,
    })
@@ -19,37 +19,54 @@ function createData() {
 }
 
 function loadData() {
-   const xhttp = new XMLHttpRequest();
-   document.getElementById("load").innerHTML;
-   xhttp.onload = function () {
-      const response = JSON.parse(this.responseText);
-      console.log(response);
+   fetch("https://mhs.serveo.net/belajar-php/mahasiswa/mahasiswa.php")
+      .then((response) => response.json())
+      .then((data) => {
+         console.log(data);
 
-      let tableData = "";
+         let tableData = "";
 
-      response.forEach((item) => {
-         tableData += `<tr class="border border-slate-700 bg-slate-500">
-         <td class="border border-slate-700">${item.id}</td> 
-         <td class="border border-slate-700">${item.nama}</td> 
-         <td class="border border-slate-700">${item.nim}</td> 
-         <td class="border border-slate-700">${item.jurusan}</td>
-         <td><a href="#">Update</a> | 
-         <a href="#">Delete</a></td></tr>`;
+         data.forEach((item) => {
+            tableData += `<tr class="border border-slate-700 bg-slate-500">
+            <td class="border border-slate-700">${item.id}</td> 
+            <td class="border border-slate-700">${item.nama}</td> 
+            <td class="border border-slate-700">${item.nim}</td> 
+            <td class="border border-slate-700">${item.jurusan}</td>
+            <td>
+            <a href="../formedit.html?id=${item.id}" onClick="prepareUpdateData(${item.id})">Update</a> 
+            | 
+            <a href="#" onClick="deleteData(${item.id})">Delete</a></td></tr>`;
+         });
+
+         document.getElementById("table_data").innerHTML += tableData;
+         document.getElementById("load").remove();
+      })
+      .catch((error) => {
+         console.error("Error:", error);
       });
-      document.getElementById("table_data").innerHTML += tableData;
-      document.getElementById("load").remove();
-   };
-   xhttp.open(
-      "GET",
-      "https://iussi.serveo.net/belajar-php/mahasiswa/mahasiswa.php"
-   ); // data server perlu diganti koneksinya setiap generate
-   xhttp.send();
 }
 
-function updateData() {
-   const xhttp = new XMLHttpRequest();
-}
-
-function deleteData() {
-   const xhttp = new XMLHttpRequest();
+function deleteData(id) {
+   if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+      fetch(`https://mhs.serveo.net/belajar-php/mahasiswa/mahasiswa.php`, {
+         method: "DELETE",
+         body: `id=${id}`,
+         headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+         },
+      })
+         .then((response) => response.json())
+         .then((data) => {
+            console.log(data);
+            alert(data.message);
+            //delete all td inside table_data
+            document.querySelectorAll("#table_data td").forEach((item) => {
+               item.remove();
+            });
+            loadData(); // Muat data kembali setelah penghapusan
+         })
+         .catch((error) => {
+            console.error("Error:", error);
+         });
+   }
 }

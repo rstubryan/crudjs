@@ -11,15 +11,16 @@
       <script src="https://cdn.tailwindcss.com"></script>
       <script src="src/data.js"></script>
       <script src="src/navbar.js"></script>
-      <script src="src/form.js"></script>
+      <script src="src/formedit.js"></script>
    </head>
    <body class="bg-slate-400">
       <div id="navbar-container"></div>
-      <div id="crud" class="text-white text-xl font-semibold py-2 px-4">
+      <div id="crud" class="text-white text-xl font-semibold py-2 px-4"></div>
 
       <script>
          navbar();
-         document.getElementById("crud").innerHTML = generateForm();
+         document.getElementById("crud").innerHTML = generateFormEdit();
+         getMhsDetail();
       </script>
    </body>
 </html>
