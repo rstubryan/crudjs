@@ -1,5 +1,6 @@
 function createData() {
-    const xhttp = new XMLHttpRequest();
+   const xhttp = new XMLHttpRequest();
+   window.location.href='formcreate.html';
 }
 
 function loadData() {
@@ -17,15 +18,15 @@ function loadData() {
    };
    xhttp.open(
       "GET",
-      "https://iuvo.serveo.net/belajar-php/mahasiswa/mahasiswa.php"
+      "https://comparo.serveo.net/belajar-php/mahasiswa/mahasiswa.php"
    ); // data server perlu diganti koneksinya setiap generate
    xhttp.send();
 }
 
 function updateData() {
-    const xhttp = new XMLHttpRequest();
+   const xhttp = new XMLHttpRequest();
 }
 
 function deleteData() {
-    const xhttp = new XMLHttpRequest();
+   const xhttp = new XMLHttpRequest();
 }

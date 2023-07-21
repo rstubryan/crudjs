@@ -1,35 +1,44 @@
-    <div id="crud" class="text-white text-xl font-semibold py-2 px-4">
-        <h2 class="text-center">Tabel</h2>
-        <table class="mx-auto table-auto border-spacing-2 text-center" id="table_data">
-            <thead>
-                <tr>
-                    <th class="border border-slate-700 bg-slate-800">ID</th>
-                    <th class="border border-slate-700 bg-slate-800">Nama</th>
-                    <th class="border border-slate-700 bg-slate-800">NIM</th>
-                    <th class="border border-slate-700 bg-slate-800">Jurusan</th>
-                </tr>
-            </thead>
-        </table>
-        
-        <div class="py-6">
-            <button type="button" onclick="loadDoc()" class="bg-slate-900 border border-slate-700 text-center mx-auto block">
-                Reveal Data
-            </button>
-        </div>
-    </div>
+         // Get the create form element
+         const createForm = document.getElementById("create-form");
 
-    <script>
-        function loadDoc() {
-          const xhttp = new XMLHttpRequest();
-          xhttp.onload = function() {
-            const response = JSON.parse(this.responseText);
-            console.log(response)
+         // Add event listener to handle form submission
+         createForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-            response.forEach(item => {
-                document.getElementById('table_data').innerHTML += `<tr class="border border-slate-700 bg-slate-500"><td>${item.id}</td> <td>${item.nama}</td> <td>${item.nim}</td> <td>${item.jurusan}</td>`;
-            });
-          }
-          xhttp.open("GET", "https://lucis.serveo.net/belajar-php/mahasiswa/mahasiswa.php");
-          xhttp.send();
-        }
-    </script>
+            // Get the form inputs
+            const namaInput = document.getElementById("nama-input").value;
+            const nimInput = document.getElementById("nim-input").value;
+            const jurusanInput = document.getElementById("jurusan-input").value;
+
+            confirmInput();
+
+            // Log the form data to the console (replace this with your backend API call)
+            console.log("Nama:", namaInput);
+            console.log("NIM:", nimInput);
+            console.log("Jurusan:", jurusanInput);
+
+            // Reset the form after submission (optional)
+            createForm.reset();
+         });
+
+         
+         // Get the edit form element
+         const editForm = document.getElementById("edit-form");
+
+         // Add event listener to handle form submission
+         editForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get the form inputs
+            const namaInput = document.getElementById("nama-input").value;
+            const nimInput = document.getElementById("nim-input").value;
+            const jurusanInput = document.getElementById("jurusan-input").value;
+
+            // Log the form data to the console (replace this with your backend API call)
+            console.log("Nama:", namaInput);
+            console.log("NIM:", nimInput);
+            console.log("Jurusan:", jurusanInput);
+
+            // Reset the form after submission (optional)
+            editForm.reset();
+         });

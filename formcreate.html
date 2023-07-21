@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CRUD</title>
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="/src/data.js"></script>
+      <script src="src/navbar.js"></script>
+      <script src="src/form.js"></script>
+   </head>
+   <body class="bg-slate-400">
+      <div id="navbar-container"></div>
+      <div id="crud" class="text-white text-xl font-semibold py-2 px-4">
+
+      <script>
+         navbar();
+         document.getElementById("crud").innerHTML = generateForm();
+      </script>
+   </body>
+</html>

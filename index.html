@@ -10,18 +10,12 @@
       />
       <script src="https://cdn.tailwindcss.com"></script>
       <script src="/src/data.js"></script>
+      <script src="/src/navbar.js"></script>
    </head>
    <body class="bg-slate-400">
-      <nav class="sticky top-0 drop-shadow-xl">
-         <h1
-            class="text-center font-bold bg-slate-800 text-white text-3xl py-4"
-         >
-            Tabel CRUD
-         </h1>
-      </nav>
-
+      <div id="navbar-container"></div>
       <div id="crud" class="text-white text-xl font-semibold py-2 px-4">
-         <h2 class="text-center py-1">Data Mahasiswa</h2>
+         <p class="text-center py-1">Data Mahasiswa</p>
 
          <div class="mx-auto block text-center py-4">
             <!-- Create -->
@@ -71,6 +65,9 @@
          </table>
       </div>
 
-      <script></script>
+      <script>
+         // Call the navbar() function to display the navbar
+         navbar();
+      </script>
    </body>
 </html>
