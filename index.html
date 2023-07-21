@@ -9,8 +9,8 @@
          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       <script src="https://cdn.tailwindcss.com"></script>
-      <script src="/src/data.js"></script>
-      <script src="/src/navbar.js"></script>
+      <script src="src/data.js"></script>
+      <script src="src/navbar.js"></script>
    </head>
    <body class="bg-slate-400">
       <div id="navbar-container"></div>
@@ -19,24 +19,13 @@
 
          <div class="mx-auto block text-center py-4">
             <!-- Create -->
-            <button
-               type="button"
-               onclick="createData()"
-               class="bg-slate-800 border border-slate-700 text-center mx-auto block"
+            <a
+               href="formcreate.html"
+               class="bg-slate-800 border border-slate-700 text-center mx-auto inline-block"
             >
                <i class="fa fa-fw fa-plus"></i>
                Create Data
-            </button>
-
-            <!-- Show -->
-            <button
-               type="button"
-               onclick="loadData()"
-               class="bg-slate-800 border border-slate-700 text-center mx-auto block"
-            >
-               <i class="fa fa-fw fa-database"></i>
-               Show Data
-            </button>
+            </a>
          </div>
 
          <table
@@ -63,11 +52,15 @@
                </tr>
             </thead>
          </table>
+         
+         <div class="py-6">
+            <p id="load" class="text-center animate-bounce"><i class="fa fa-fw fa-download"></i>Loading Data</p>
+         </div>
       </div>
 
       <script>
-         // Call the navbar() function to display the navbar
          navbar();
+         loadData();
       </script>
    </body>
 </html>
